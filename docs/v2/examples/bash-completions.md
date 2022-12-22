@@ -20,7 +20,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/urfave/cli/v2"
+	"github.com/kjeom/cli/v2"
 )
 
 func main() {
@@ -91,7 +91,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/urfave/cli/v2"
+	"github.com/kjeom/cli/v2"
 )
 
 func main() {
@@ -195,7 +195,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/urfave/cli/v2"
+	"github.com/kjeom/cli/v2"
 )
 
 func main() {

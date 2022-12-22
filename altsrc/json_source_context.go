@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/urfave/cli/v2"
+	"github.com/kjeom/cli/v2"
 )
 
 // NewJSONSourceFromFlagFunc returns a func that takes a cli.Context
@@ -76,6 +76,18 @@ func (x *jsonSource) Int(name string) (int, error) {
 	case float64:
 		return int(v), nil
 	}
+}
+
+func (x *jsonSource) Uint64(name string) (uint64, error) {
+	i, err := x.getValue(name)
+	if err != nil {
+		return 0, err
+	}
+	v, ok := i.(uint64)
+	if !ok {
+		return 0, fmt.Errorf("unexpected type %T for %q", i, name)
+	}
+	return v, nil
 }
 
 func (x *jsonSource) Duration(name string) (time.Duration, error) {

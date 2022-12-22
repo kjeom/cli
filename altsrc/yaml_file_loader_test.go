@@ -6,8 +6,8 @@ import (
 	"os"
 	"time"
 
-	"github.com/urfave/cli/v2"
-	"github.com/urfave/cli/v2/altsrc"
+	"github.com/kjeom/cli/v2"
+	"github.com/kjeom/cli/v2/altsrc"
 )
 
 func ExampleApp_Run_yamlFileLoaderDuration() {

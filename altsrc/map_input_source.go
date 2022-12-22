@@ -6,7 +6,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/urfave/cli/v2"
+	"github.com/kjeom/cli/v2"
 )
 
 // MapInputSource implements InputSourceContext to return
@@ -72,6 +72,28 @@ func (fsm *MapInputSource) Int(name string) (int, error) {
 		otherValue, isType := nestedGenericValue.(int)
 		if !isType {
 			return 0, incorrectTypeForFlagError(name, "int", nestedGenericValue)
+		}
+		return otherValue, nil
+	}
+
+	return 0, nil
+}
+
+// Int returns an int from the map if it exists otherwise returns 0
+func (fsm *MapInputSource) Uint64(name string) (uint64, error) {
+	otherGenericValue, exists := fsm.valueMap[name]
+	if exists {
+		otherValue, isType := otherGenericValue.(uint64)
+		if !isType {
+			return 0, incorrectTypeForFlagError(name, "uint64", otherGenericValue)
+		}
+		return otherValue, nil
+	}
+	nestedGenericValue, exists := nestedVal(name, fsm.valueMap)
+	if exists {
+		otherValue, isType := nestedGenericValue.(uint64)
+		if !isType {
+			return 0, incorrectTypeForFlagError(name, "uint64", nestedGenericValue)
 		}
 		return otherValue, nil
 	}

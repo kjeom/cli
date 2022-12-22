@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/urfave/cli/v2"
+	"github.com/kjeom/cli/v2"
 )
 
 func TestFloat64SliceFlag_SatisfiesFlagInterface(t *testing.T) {

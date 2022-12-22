@@ -35,7 +35,7 @@ $ go get github.com/urfave/cli/v2
 ```go
 ...
 import (
-  "github.com/urfave/cli/v2" // imports as package "cli"
+  "github.com/kjeom/cli/v2" // imports as package "cli"
 )
 ...
 ```

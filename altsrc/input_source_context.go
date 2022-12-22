@@ -3,7 +3,7 @@ package altsrc
 import (
 	"time"
 
-	"github.com/urfave/cli/v2"
+	"github.com/kjeom/cli/v2"
 )
 
 // InputSourceContext is an interface used to allow
@@ -15,6 +15,7 @@ type InputSourceContext interface {
 	Source() string
 
 	Int(name string) (int, error)
+	Uint64(name string) (uint64, error)
 	Duration(name string) (time.Duration, error)
 	Float64(name string) (float64, error)
 	String(name string) (string, error)

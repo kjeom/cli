@@ -28,7 +28,7 @@ import (
 	"io"
 	"os"
 
-	"github.com/urfave/cli/v2"
+	"github.com/kjeom/cli/v2"
 )
 
 func main() {
@@ -85,7 +85,7 @@ package main
 import (
 	"os"
 
-	"github.com/urfave/cli/v2"
+	"github.com/kjeom/cli/v2"
 )
 
 func main() {

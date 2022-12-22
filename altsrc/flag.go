@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"syscall"
 
-	"github.com/urfave/cli/v2"
+	"github.com/kjeom/cli/v2"
 )
 
 // FlagInputSourceExtension is an extension interface of cli.Flag that
@@ -244,6 +244,26 @@ func (f *PathFlag) ApplyInputSourceValue(cCtx *cli.Context, isc InputSourceConte
 				value = filepath.Join(filepath.Dir(basePathAbs), value)
 			}
 			_ = f.set.Set(n, value)
+		}
+	}
+	return nil
+}
+
+// ApplyInputSourceValue applies a int value to the flagSet if required
+func (f *Uint64Flag) ApplyInputSourceValue(cCtx *cli.Context, isc InputSourceContext) error {
+	if f.set == nil || cCtx.IsSet(f.Name) || isEnvVarSet(f.EnvVars) {
+		return nil
+	}
+	for _, name := range f.Uint64Flag.Names() {
+		if !isc.isSet(name) {
+			continue
+		}
+		value, err := isc.Int(name)
+		if err != nil {
+			return err
+		}
+		for _, n := range f.Names() {
+			_ = f.set.Set(n, strconv.FormatUint(uint64(value), 10))
 		}
 	}
 	return nil

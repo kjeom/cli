@@ -29,7 +29,7 @@ cli hello rick --shout
 # Import string changed
 
 * OLD: `import "github.com/urfave/cli"`
-* NEW: `import "github.com/urfave/cli/v2"`
+* NEW: `import "github.com/kjeom/cli/v2"`
 
 Check each file for this and make the change.
 

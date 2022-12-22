@@ -15,7 +15,7 @@ import (
 	"syscall"
 	"text/template"
 
-	"github.com/urfave/cli/v2"
+	"github.com/kjeom/cli/v2"
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
 	"gopkg.in/yaml.v3"
