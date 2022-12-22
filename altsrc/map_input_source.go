@@ -79,7 +79,51 @@ func (fsm *MapInputSource) Int(name string) (int, error) {
 	return 0, nil
 }
 
+// Int returns an int64 from the map if it exists otherwise returns 0
+func (fsm *MapInputSource) Int64(name string) (int64, error) {
+	otherGenericValue, exists := fsm.valueMap[name]
+	if exists {
+		otherValue, isType := otherGenericValue.(int64)
+		if !isType {
+			return 0, incorrectTypeForFlagError(name, "int64", otherGenericValue)
+		}
+		return otherValue, nil
+	}
+	nestedGenericValue, exists := nestedVal(name, fsm.valueMap)
+	if exists {
+		otherValue, isType := nestedGenericValue.(int64)
+		if !isType {
+			return 0, incorrectTypeForFlagError(name, "int64", nestedGenericValue)
+		}
+		return otherValue, nil
+	}
+
+	return 0, nil
+}
+
 // Int returns an int from the map if it exists otherwise returns 0
+func (fsm *MapInputSource) Uint(name string) (uint, error) {
+	otherGenericValue, exists := fsm.valueMap[name]
+	if exists {
+		otherValue, isType := otherGenericValue.(uint)
+		if !isType {
+			return 0, incorrectTypeForFlagError(name, "uint", otherGenericValue)
+		}
+		return otherValue, nil
+	}
+	nestedGenericValue, exists := nestedVal(name, fsm.valueMap)
+	if exists {
+		otherValue, isType := nestedGenericValue.(uint)
+		if !isType {
+			return 0, incorrectTypeForFlagError(name, "uint", nestedGenericValue)
+		}
+		return otherValue, nil
+	}
+
+	return 0, nil
+}
+
+// Int returns an uint64 from the map if it exists otherwise returns 0
 func (fsm *MapInputSource) Uint64(name string) (uint64, error) {
 	otherGenericValue, exists := fsm.valueMap[name]
 	if exists {
@@ -147,6 +191,35 @@ func (fsm *MapInputSource) Float64(name string) (float64, error) {
 	}
 
 	return 0, nil
+}
+
+// StringSlice returns an []string from the map if it exists otherwise returns nil
+func (fsm *MapInputSource) Float64Slice(name string) ([]float64, error) {
+	otherGenericValue, exists := fsm.valueMap[name]
+	if !exists {
+		otherGenericValue, exists = nestedVal(name, fsm.valueMap)
+		if !exists {
+			return nil, nil
+		}
+	}
+
+	otherValue, isType := otherGenericValue.([]interface{})
+	if !isType {
+		return nil, incorrectTypeForFlagError(name, "[]interface{}", otherGenericValue)
+	}
+
+	var float64Slice = make([]float64, 0, len(otherValue))
+	for i, v := range otherValue {
+		float64Value, isType := v.(float64)
+
+		if !isType {
+			return nil, incorrectTypeForFlagError(fmt.Sprintf("%s[%d]", name, i), "float64", v)
+		}
+
+		float64Slice = append(float64Slice, float64Value)
+	}
+
+	return float64Slice, nil
 }
 
 // String returns a string from the map if it exists otherwise returns an empty string
