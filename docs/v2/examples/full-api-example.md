@@ -23,7 +23,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/urfave/cli/v2"
+	"github.com/kjeom/cli/v2"
 )
 
 func init() {

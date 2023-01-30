@@ -18,7 +18,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/urfave/cli/v2"
+	"github.com/kjeom/cli/v2"
 )
 
 func main() {
@@ -65,7 +65,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/urfave/cli/v2"
+	"github.com/kjeom/cli/v2"
 )
 
 func main() {
@@ -116,7 +116,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/urfave/cli/v2"
+	"github.com/kjeom/cli/v2"
 )
 
 func main() {
@@ -160,7 +160,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/urfave/cli/v2"
+	"github.com/kjeom/cli/v2"
 )
 
 func main() {
@@ -205,7 +205,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/urfave/cli/v2"
+	"github.com/kjeom/cli/v2"
 )
 
 func main() {
@@ -241,7 +241,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/urfave/cli/v2"
+	"github.com/kjeom/cli/v2"
 )
 
 func main() {
@@ -301,7 +301,7 @@ import (
 	"os"
 	"sort"
 
-	"github.com/urfave/cli/v2"
+	"github.com/kjeom/cli/v2"
 )
 
 func main() {
@@ -370,7 +370,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/urfave/cli/v2"
+	"github.com/kjeom/cli/v2"
 )
 
 func main() {
@@ -406,7 +406,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/urfave/cli/v2"
+	"github.com/kjeom/cli/v2"
 )
 
 func main() {
@@ -443,7 +443,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/urfave/cli/v2"
+	"github.com/kjeom/cli/v2"
 )
 
 func main() {
@@ -517,8 +517,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/urfave/cli/v2"
-	"github.com/urfave/cli/v2/altsrc"
+	"github.com/kjeom/cli/v2"
+	"github.com/kjeom/cli/v2/altsrc"
 )
 
 func main() {
@@ -558,7 +558,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/urfave/cli/v2"
+	"github.com/kjeom/cli/v2"
 )
 
 func main() {
@@ -612,7 +612,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/urfave/cli/v2"
+	"github.com/kjeom/cli/v2"
 )
 
 func main() {
@@ -665,7 +665,7 @@ import (
 	"os"
 	"fmt"
 
-	"github.com/urfave/cli/v2"
+	"github.com/kjeom/cli/v2"
 )
 
 func main() {

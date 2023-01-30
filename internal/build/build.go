@@ -18,7 +18,7 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/urfave/cli/v2"
+	"github.com/kjeom/cli/v2"
 )
 
 const (
@@ -240,7 +240,7 @@ func TestActionFunc(c *cli.Context) error {
 	tags := c.String("tags")
 
 	for _, pkg := range c.StringSlice("packages") {
-		packageName := "github.com/urfave/cli/v2"
+		packageName := "github.com/kjeom/cli/v2"
 
 		if pkg != "cli" {
 			packageName = fmt.Sprintf("github.com/urfave/cli/v2/%s", pkg)

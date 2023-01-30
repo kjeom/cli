@@ -9,7 +9,7 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/urfave/cli/v2"
+	"github.com/kjeom/cli/v2"
 
 	"gopkg.in/yaml.v3"
 )
